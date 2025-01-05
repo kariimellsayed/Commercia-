@@ -1,0 +1,40 @@
+// Hero Section
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+.hero-section {
+  background: linear-gradient(to right, #0d6efd, #6610f2);
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      background-color: $clr-white;
+      color: $clr-commerce;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: $transition;
+
+      &:hover {
+        background-color: #6610f2;
+        color: $clr-white;
+        border: 1px solid $clr-white;
+      }
+    }
+  }
+}

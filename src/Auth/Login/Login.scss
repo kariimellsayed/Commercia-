@@ -1,0 +1,183 @@
+@use "../../main.scss" as *;
+@use "../../style//Sass/media" as *;
+
+// Login Page
+.login {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../../assets/images/login.jpg") center / cover no-repeat;
+  z-index: 999;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $clr-commerce, $alpha: 0.3);
+    z-index: -1;
+  }
+  &-content {
+    width: 500px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: $clr-ghost-white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.4rem;
+      color: $clr-commerce;
+      font-family: "Caveat", sans-serif;
+    }
+    .login-form {
+      .form-group {
+        position: relative;
+        margin-bottom: 20px;
+
+        input {
+          width: 100%;
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          transition: all 0.3s ease; // للسلاسة
+
+          &::placeholder {
+            color: #999;
+            opacity: 1;
+            transition: $transition;
+          }
+
+          &:focus::placeholder {
+            opacity: 0; // إخفاء الـ placeholder عند التركيز
+          }
+        }
+
+        label {
+          font-size: 14px;
+          margin-bottom: 5px;
+          display: block;
+          color: $clr-second;
+        }
+
+        .password-wrapper {
+          position: relative;
+          .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 500;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            color: $clr-commerce;
+          }
+        }
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .remember-me {
+          display: flex;
+          align-items: center;
+
+          input {
+            margin-right: 5px;
+          }
+
+          label {
+            font-size: 14px;
+          }
+        }
+
+        button {
+          background-color: $clr-commerce;
+          color: $clr-white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: $transition;
+
+          &:hover {
+            background-color: darken($clr-commerce, 10%);
+          }
+        }
+      }
+      .login-options {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        a {
+          font-size: 15px;
+          color: $clr-second;
+          transition: $transition;
+
+          &:hover {
+            color: darken($clr-second, 10%);
+          }
+        }
+      }
+    }
+    // Media Query From Mixin File
+    @include respond-to("small") {
+      width: 400px;
+      .login-form {
+        .form-group {
+          input,
+          label {
+            font-size: 13px;
+          }
+        }
+        .form-actions {
+          .remember-me {
+            label {
+              font-size: 10px;
+            }
+          }
+          button {
+            font-size: 13px;
+          }
+        }
+        .login-options {
+          a {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    @include respond-to("xsmall") {
+      width: 350px;
+      .login-form {
+        .form-group {
+          input,
+          label {
+            font-size: 11px;
+          }
+        }
+        .login-options {
+          a {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+    @include respond-to("xxsmall") {
+      width: 320px;
+    }
+  }
+}

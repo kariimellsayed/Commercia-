@@ -1,0 +1,51 @@
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+.custom-overlay {
+  background-color: rgba($clr-commerce, 0.6);
+
+  .custom-ui {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: auto;
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: $clr-commerce;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .confirm-button {
+      background-color: $clr-commerce;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: $transition;
+      &:hover {
+        background-color: $clr-second;
+      }
+    }
+    .cancel-button {
+      background-color: #ccc;
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: $transition;
+      &:hover {
+        background-color: #999;
+      }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+@use "../main.scss" as *;
+@use "../style/Sass/media" as *;
+
+.add-edit {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $clr-dark;
+  padding: 30px;
+
+  &-content {
+    background-color: $clr-dash;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    h2 {
+      color: #eee;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    div {
+      margin-bottom: 15px;
+
+      label {
+        color: #eee;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid $clr-light-blue;
+        background-color: #ccc;
+        color: $clr-black;
+        font-weight: 600;
+        transition: $transition;
+
+        &:focus {
+          border-color: $clr-semi-dash;
+          outline: none;
+        }
+
+        &::placeholder {
+          color: $clr-light-blue;
+          opacity: 1;
+          transition: $transition;
+        }
+
+        &:focus::placeholder {
+          opacity: 0;
+        }
+      }
+
+      .select-wrapper {
+        position: relative;
+
+        select {
+          width: 100%;
+          padding: 10px;
+          padding-right: 40px;
+          border-radius: 5px;
+          border: 1px solid $clr-light-blue;
+          background-color: #ccc;
+          color: $clr-black;
+          font-weight: 600;
+          transition: $transition;
+          appearance: none;
+          cursor: pointer;
+
+          &:focus {
+            border-color: $clr-semi-dash;
+            outline: none;
+          }
+        }
+        .select-icon {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none;
+          color: $clr-black;
+        }
+      }
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: $clr-second;
+      color: $clr-white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: $transition;
+      &:hover {
+        background-color: $clr-commerce;
+      }
+    }
+  }
+
+  // Media queries using the mixin for responsiveness
+  @include respond-to("small") {
+    h2 {
+      font-size: 20px;
+    }
+    form {
+      button {
+        padding: 8px 13px;
+        font-size: 16px;
+      }
+    }
+  }
+  @include respond-to("xsmall") {
+    h2 {
+      font-size: 18px;
+    }
+    form {
+      div {
+        label {
+          font-size: 15px;
+          text-align: center;
+        }
+        input,
+        select {
+          padding: 6px;
+        }
+      }
+      button {
+        padding: 7px 12px;
+        font-size: 15px;
+      }
+    }
+  }
+}

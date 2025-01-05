@@ -1,0 +1,29 @@
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+// Brands
+.brands-section {
+  padding: 100px 0;
+  text-align: center;
+
+  .brands-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    img {
+      width: 100px;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+      @include respond-to("xsmall") {
+        width: 70px;
+      }
+    }
+  }
+}

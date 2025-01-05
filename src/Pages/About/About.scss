@@ -1,0 +1,83 @@
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+// About
+.about-page {
+  padding: 100px 0;
+  color: #333;
+  background: #eee;
+
+  .about-intro,
+  .about-history,
+  .about-values,
+  .about-features,
+  .about-contact {
+    margin-bottom: 40px;
+    text-align: center;
+
+    h1,
+    h2 {
+      color: #4a90e2;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .about-values .values-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    .value-item {
+      flex: 1 1 30%;
+      padding: 10px;
+      text-align: center;
+
+      @include respond-to("xsmall") {
+        p {
+          font-size: 1.3rem;
+        }
+      }
+
+      i {
+        font-size: 2rem;
+        color: #4a90e2;
+      }
+    }
+  }
+
+  .about-features {
+    h2 {
+      span {
+        margin-left: 5px;
+      }
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+
+      li {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        position: relative;
+        padding-left: 20px;
+
+        &:before {
+          content: "\f058";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          color: #4a90e2;
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+// Works
+.how-it-works {
+  padding: 100px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 5rem;
+    text-align: left;
+  }
+
+  ol {
+    margin: 0 auto;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: step-counter;
+
+    li {
+      counter-increment: step-counter;
+      margin: 20px 0;
+      padding: 20px;
+      max-width: 100%;
+      background-color: $clr-white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      @include respond-to("small") {
+        text-align: right;
+      }
+
+      @include respond-to("xsmall") {
+        font-size: 12px;
+        text-align: right;
+      }
+      @include respond-to("xxsmall") {
+        font-size: 10px;
+      }
+      &::before {
+        content: counter(step-counter);
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $clr-commerce;
+        color: white;
+        box-shadow: 0 4px 8px rgba($clr-commerce, 0.5);
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+    }
+  }
+}

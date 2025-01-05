@@ -1,0 +1,45 @@
+// Success
+@use "../../main.scss" as *;
+
+.success {
+  min-height: 100vh;
+  background-color: rgba($color: $clr-green, $alpha: 0.5);
+  .circle {
+    width: 100%;
+    text-align: center;
+    max-width: 768px;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 0.5;
+    i {
+      font-size: 30px;
+      color: green;
+      margin-bottom: 16px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    h1 {
+      color: $clr-light-blue;
+      font-size: 23px;
+      font-weight: 600;
+    }
+    p {
+      margin-top: 16px;
+      font-size: 18px;
+      color: $clr-pine-green;
+    }
+    a {
+      button {
+        padding: 12px 24px;
+        background-color: $clr-green;
+        color: $clr-white;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: $transition;
+        &:hover {
+          background-color: green;
+        }
+      }
+    }
+  }
+}

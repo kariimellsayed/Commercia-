@@ -1,0 +1,94 @@
+@use "../main.scss" as *;
+@use "../style/Sass/media" as *;
+
+.table-container {
+  margin: 20px;
+  padding: 10px;
+  background-color: $clr-ghost-white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  h2 {
+    margin-left: 10px;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+      &:nth-child(even) {
+        background-color: #eee;
+      }
+      &:hover {
+        background-color: #ccc;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ccc;
+      }
+
+      th {
+        background-color: $clr-light-blue;
+        color: white;
+        text-align: center;
+      }
+
+      td {
+        &:first-child,
+        &:last-child {
+          text-align: center;
+          font-weight: 500;
+        }
+        &.brand {
+          text-align: center;
+        }
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 50px;
+          height: auto;
+        }
+      }
+    }
+
+    .actions {
+      .btn {
+        padding: 4px 10px;
+        border: none;
+        font-size: 14px;
+        color: $clr-white;
+        border-radius: 6px;
+        transition: $transition;
+        &.delete {
+          background-color: $clr-red;
+          &:hover {
+            background-color: rgb(141, 21, 21);
+          }
+        }
+        &.edit {
+          margin-left: 10px;
+          background-color: $clr-second;
+          &:hover {
+            background-color: #1060a5;
+          }
+        }
+      }
+    }
+  }
+
+  @include respond-to("medium") {
+    overflow-x: auto;
+    .table {
+      min-width: 768px;
+    }
+  }
+  @include respond-to("small") {
+    h2 {
+      font-size: 20px;
+    }
+  }
+}

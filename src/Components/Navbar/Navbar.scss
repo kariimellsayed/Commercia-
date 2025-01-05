@@ -1,0 +1,294 @@
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+.navbar {
+  background-color: $clr-white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  padding: 5px 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: $transition;
+  // Scroll
+
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    .links {
+      a {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .brand {
+      font-size: 30px;
+      font-weight: 600;
+      font-family: "Caveat", sans-serif;
+      a {
+        color: $clr-commerce;
+      }
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+
+      a {
+        font-size: 1.6rem;
+        color: $clr-black;
+        transition: $transition;
+        &:last-child {
+          cursor: pointer;
+        }
+        &:hover {
+          color: $clr-second;
+        }
+        &.active {
+          color: $clr-commerce;
+          font-weight: 600;
+        }
+      }
+      @include respond-to("semi") {
+        gap: 20px;
+        a {
+          font-size: 1.4rem;
+        }
+      }
+    }
+
+    .account {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      .icons {
+        margin-right: 10px;
+        gap: 25px;
+        i {
+          font-size: 21px;
+        }
+        .cart {
+          a {
+            &.active,
+            &.cont {
+              color: $clr-commerce;
+            }
+          }
+        }
+        .heart {
+          a {
+            &.active,
+            &.cont {
+              color: $clr-red;
+            }
+          }
+        }
+        .heart,
+        .cart {
+          font-weight: 700;
+          position: relative;
+          z-index: 1;
+          span {
+            position: absolute;
+            top: -11px;
+            right: -10px;
+            background-color: $clr-black;
+            width: 15px;
+            height: 15px;
+            font-size: 10px;
+            font-weight: 600;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: $transition;
+            z-index: -1;
+          }
+        }
+      }
+      .register {
+        display: flex;
+        gap: 15px;
+
+        a {
+          font-weight: 600;
+          font-size: 16px;
+          color: $clr-commerce;
+
+          &:hover {
+            color: $clr-second;
+          }
+        }
+        .logout,
+        .reg,
+        .log {
+          i {
+            color: $clr-white;
+            margin-right: 10px;
+            display: none;
+          }
+        }
+      }
+    }
+
+    .bars {
+      font-size: 17px;
+      cursor: pointer;
+      display: none;
+      transition: $transition;
+      border: 1px solid $clr-commerce;
+      padding: 0 8px;
+      border-radius: 4px;
+      i {
+        font-size: 17px;
+        color: $clr-commerce;
+        transition: $transition;
+      }
+      &.back {
+        background-color: $clr-commerce;
+        border-color: $clr-white;
+
+        i {
+          color: $clr-white;
+        }
+      }
+    }
+
+    // Media Queries using Mixin
+    @include respond-to("medium") {
+      .links {
+        position: fixed;
+        top: 65px;
+        right: 0;
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+        flex-direction: column;
+        background-color: rgba($clr-second, $alpha: 0.8);
+        justify-content: center;
+        width: 250px;
+        height: 100vh;
+        transition: $transition;
+        z-index: 999;
+        border-radius: 4px;
+        li {
+          width: 80%;
+          text-align: center;
+          background-color: $clr-white;
+          border-radius: 10px;
+          padding: 10px;
+
+          a {
+            width: 100%;
+            color: $clr-commerce;
+            font-weight: 600;
+          }
+        }
+
+        &.show {
+          transform: translateX(0);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .account {
+        .register {
+          position: fixed;
+          top: 70px;
+          right: 0;
+          transform: translateX(100%);
+          opacity: 0;
+          visibility: hidden;
+          width: 250px;
+          padding-top: 50px;
+          flex-direction: column;
+          gap: 20px;
+          transition: $transition;
+          z-index: 999;
+          a {
+            background-color: transparent;
+            border: 1px solid $clr-white;
+            color: $clr-white !important;
+            width: 60%;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+          }
+
+          .reg,
+          .logout,
+          .log {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+              margin-right: 10px;
+              display: block;
+            }
+          }
+
+          &.show {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+
+        .bars {
+          display: block;
+        }
+      }
+    }
+
+    @include respond-to("small") {
+      .links {
+        width: 220px;
+        li {
+          width: 80%;
+          a {
+            font-size: 15px;
+          }
+        }
+      }
+      .account {
+        .register {
+          width: 220px;
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    @include respond-to("xsmall") {
+      .links {
+        width: 180px;
+        li {
+          width: 80%;
+          a {
+            font-size: 15px;
+          }
+        }
+      }
+      .account {
+        .register {
+          width: 180px;
+          a {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

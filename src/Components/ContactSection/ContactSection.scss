@@ -1,0 +1,73 @@
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+// Contact Us
+
+.contact-us {
+  padding: 100px 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/images/contact.jpg") center / cover no-repeat;
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($clr-black, $alpha: 0.7);
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  h2 {
+    color: $clr-white;
+    margin-bottom: 3rem;
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: $clr-white;
+  }
+
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include respond-to("small") {
+      width: 450px;
+    }
+    @include respond-to("xsmall") {
+      width: 380px;
+    }
+    @include respond-to("xxsmall") {
+      width: 350px;
+    }
+    input,
+    textarea {
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 15px;
+      background-color: #6610f2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0d6efd;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+.loading-container {
+  margin: 150px auto;
+  transform: translateY(50%);
+  width: 200px;
+  padding: 20px;
+  height: auto;
+  border-radius: 10px;
+  background-color: rgba($clr-commerce, $alpha: 0.5);
+
+  .loader {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border: 10px solid #e0e0e0;
+    border-top: 10px solid #5340ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.4em;
+    font-weight: 500;
+  }
+
+  @include respond-to("small") {
+    width: 150px;
+    .loader {
+      width: 70px;
+      height: 70px;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+}

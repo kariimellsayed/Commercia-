@@ -1,0 +1,41 @@
+@use "../../main.scss" as *;
+@use "../../style/Sass/media" as *;
+
+// Customer
+
+.customer-reviews {
+  padding: 100px 0;
+  background-color: #f0f4f8;
+  text-align: center;
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+
+    .review-card {
+      background-color: $clr-white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-style: italic;
+      transition: $transition;
+      &:hover {
+        box-shadow: 0 4px 11px rgba($clr-commerce, 0.4);
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: block;
+        margin: 10px auto;
+      }
+
+      h4 {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    }
+  }
+}
