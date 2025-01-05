@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "http://onlinestoreapi.runasp.net/api/$1"
-    }
-  ]
-}
